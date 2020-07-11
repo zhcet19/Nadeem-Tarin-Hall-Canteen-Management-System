@@ -13,7 +13,7 @@ Nadeem Tarin Hall is a resident-hall basically for engineering students of Zakir
 
 
 
-#TECH STACK
+#  TECH STACK
 1)HTML,CSS,Bootstrap,javascript for client-side
 
 2)Node,Express,Passport for server-side
