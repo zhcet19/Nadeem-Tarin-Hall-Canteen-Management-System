@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Hostelcanteen</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+		<style>
+			
+			body{
+				background-color:yellow;
+			}
+			.i{
+				text-align:center;
+				color:red;
+			}
+			p{
+				
+				 font-weight:bold;
+			}
+			.header{
+				
+				color:red;
+				text-decoration:bold;
+				margin-top:80px;
+				text-align:center;
+			}
+			.img {
+  border-radius: 50%;
+				
+}
+			footer {
+  text-align: center;
+  padding: 3px;
+  background-color: black;
+  color: white;
+				margin-top:100px;
+				
+}
+			h3{
+				text-align:center;
+				color:red;
+				margin-left:20px;
+			}
+			.p{
+				margin-left:350px;
+			    margin-right:250px;
+			}
+		</style>
+	</head>
+	<body>
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/">NADEEM TARIN HALL CANTEEN</a>			
+		</div>
+		<div class="collapse navbar-collapse">
+			 <ul class="nav navbar-nav navbar-right">
+		<% if(!currentUser){ %>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Sign Up</a></li>
+		<%}	else  {%>
+				 <li><a href="#"> Currently Signed as <%= currentUser.username %></a></li>	 
+            <li><a href="/logout">SignOut</a></li>
+		<%	}	%> 
+        </ul>
+		</div>
+  </div>
+		</nav>
+		<div class="container">
+		<%  if(error && error.length >0){ %>
+			<div  class="alert alert-danger" role="alert">
+			<%= error %>
+		    </div>
+		<% } %>	
+			<%  if(success && success.length >0){ %>
+			<div  class="alert alert-success" role="alert">
+			<%= success %>
+		    </div>
+			<% } %>
+		</div>
+		
+
+
+<div class="container">
+  <h2 class="i">NADEEM TARIN HALL CANTEEN</h2>  
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="https://www.amu.ac.in/img/slider/hall/10084/n1.JPG" alt="Los Angeles" style="width:100%;">
+		  <div class="carousel-caption">
+        <h3>Front View of NT Hall</h3>
+        <p>We welcome you to the best hostel of Aligarh Muslim University</p>
+      </div>
+      </div>
+
+      <div class="item">
+        <img src="https://www.amu.ac.in/img/slider/hall/10084/n7.JPG" alt="Chicago" style="width:100%;">
+		  <div class="carousel-caption">
+        <h3>Sir Syed Day celebrations</h3>
+        <p>A treat is must on this once in a year experience</p>
+      </div>
+      </div>
+    
+      <div class="item">
+        <img src="https://www.amu.ac.in/img/slider/hall/10084/n8.JPG" alt="New york" style="width:100%;">
+		  <div class="carousel-caption">
+        <h3>Annual Hall Celebrations</h3>
+        <p>A once in a year experience </p>
+      </div>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+<div class="row">
+	<div class="container">
+		
+	
+  <div class="col-sm-6">
+	<h1 class="header">
+		ABOUT NT HALL
+	  </h1>
+	<p>
+		A young Engineering graduate residing in Saudi Arabia, Mr. Nadeem Tarin offered to build a Hall of residence for 550 boys at the cost of Rs. 2.4 crores. He gave away his own hard earned Rs. 2.4 crore to a dream, to an idea, and as repayment of a debt that he felt he owed to his alma mater. 
+	  </p>
+
+	</div>
+  <div class="col-sm-6">
+	<h1 class="header">
+		ABOUT NT HALL CANTEEN
+	  </h1>
+	<p>
+		Nadeem Tarin Hall Canteen provides a spot where hostellers can get a breakthrough from their usual hostel mess food,also they can hung about after their tiring college routine.Our food would surely bring water in your mouth ,thus trying once in NT Hall canteen is a must
+	  </p>
+	</div>
+	</div>
+	
+	</div>
+		<div class="container">
+<div class="row">
+	<h1 class="header" style="margin-bottom:20px">
+		VIEW SOME OF OUR FOODS
+	  </h1>
+	
+		<div class="col-sm-4">
+			<img  class="img" src="https://th.bing.com/th/id/OIP.ltx2w2I7OhqS8BBOB6K9uQHaEV?pid=Api&rs=1" alt="Avatar" style="width:300px">
+            <h3>
+				BREAD OMELLETE
+			</h3>
+		</div>
+		<div class="col-sm-4">
+			<img  class="img" src="https://th.bing.com/th/id/OIP.3VGVcu0b7RneR-lBhudD6gHaFj?pid=Api&rs=1" alt="Avatar" style="width:300px">
+			<h3>
+				ALOO PARANTHA
+			</h3>
+
+		</div>
+		<div class="col-sm-4">
+			<img  class="img" src="https://th.bing.com/th/id/OIP.y66crsJJy_pk4wM41Nf71QHaEK?pid=Api&rs=1" alt="Avatar" style="width:300px">
+         <h3>
+				KEBAB PARANTHA
+			</h3>
+		</div>
+	</div>
+			<div class="row" style="margin-bottom:100px">
+	
+	
+		<div class="col-sm-4 ">
+			<img  class="img" src="https://i.ytimg.com/vi/AKMRWMBp_Lk/maxresdefault.jpg" alt="Avatar" style="width:300px">
+             <h3>
+				HALF FRY
+			</h3>
+		</div>
+		<div class="col-sm-4">
+			<img  class="img" src="https://th.bing.com/th/id/OIP.yMzMzicEuCF6cmEWsJu0jQHaE7?pid=Api&rs=1" alt="Avatar" style="width:300px">
+          <h3>
+				VEG SANDWICH
+			</h3>
+		</div>
+		<div class="col-sm-4">
+			<img  class="img" src="http://i.ytimg.com/vi/UJkoalwOgLY/maxresdefault.jpg" alt="Avatar" style="width:300px">
+          <h3>
+				MAGGI NOODLES
+	
+		</h3>
+		</div>
+	</div>
+		</div>
+		
+		<p class="p">
+		<a href="/register" class="btn btn-success">GET STARTED AT NT CANTEEN</a>
+			<a href="/food" class="btn btn-success"> VIEW FOOD AND PLACE ORDER</a>
+		</p>
+		
+	   
+		
+	
+
+<footer>
+  <p>Author: Faiz Alam<br>
+  <a href="faizamu19@gmail.com">faizamu19@gmil.com</a></p>
+</footer>
+
+		
+		
+		
+		
+		
+		
+		
+		
+</body>
+</html>
+
+
+		
+

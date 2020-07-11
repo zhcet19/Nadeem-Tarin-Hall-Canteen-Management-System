@@ -1,0 +1,78 @@
+<%- include ('../partials/header') %>
+<div clas="container">
+	<div class="row">
+		<div class="col-md-3">
+		 <p class="lead">
+			  NADEEM TARIN HALL CANTEEN
+		</p>
+		<div class="list-group">
+			<li class="list-group-item active">ABOUT NT HALL</li>
+			<p>
+				A young Engineering graduate residing in Saudi Arabia, Mr. Nadeem Tarin offered to build a Hall of residence for 550 boys at the cost of Rs. 2.4 crores. He gave away his own hard earned Rs. 2.4 crore to a dream, to an idea, and as repayment of a debt that he felt he owed to his alma mater. 
+				
+			</p>
+			<li class="list-group-item active " style="margin-top:40px">ABOUT NT HALL CANTEEN</li>
+			Nadeem Tarin Hall Canteen provides a spot where hostellers can get a breakthrough from their usual hostel mess food,also they can hung about after their tiring college routine.Our food would surely bring water in your mouth ,thus trying once in NT Hall canteen is a must
+			
+			<li class="list-group-item  active" style="margin-top:40px">ABOUT <%=food.name%> </li>
+			<p>
+				
+				<%=food.description%> 
+			</p>
+		</div>
+			<div id='map'></div>
+		</div>		
+	<div class="col-md-9">
+		<div class="thumbnail" >
+			<img class="img-responsive" src="<%=food.image %>">
+			<div class="caption-full">
+				<h4 class="pull-right">
+					Rs <%= food.price %>.00/- only
+				</h4>
+				<h4>
+					<a><%=food.name%></a>
+				</h4>
+				<p>
+					<%=food.description %>
+				</p>
+			<% if(currentUser &&  food.author.id.equals(currentUser._id)){ %>
+					<a class="btn btn-warning" href="/food/<%=food._id%>/edit" >Edit</a>
+					<form  style="display:inline" action="/food/<%= food._id %>?_method=DELETE" method="POST">
+						
+						<button class="btn btn-danger">
+							Delete
+						</button>
+				</form>
+				<%}%>		
+				
+			
+			</div>
+			<div class="well">
+				
+			
+			<div class="text-right">
+				<a  class="btn btn-success" href="/food/<%=food._id %>/comments/new">Add new comments</a>
+			</div>
+			<hr>	
+           <% food.comments.forEach(function(comment){ %>
+				<div class="row">
+					<div class="col-md-12">
+						<strong><%= comment.author.username %></strong>
+						<p><%= comment.text %></p>
+					</div>
+				</div>
+            						   
+            <% }) %>
+				
+				
+				</div>
+		</div>
+		
+	</div>		
+
+	</div>
+	
+</div>
+
+
+<%- include ('../partials/footer') %>

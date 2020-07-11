@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+	<title>NADEEM TARIN HALL CANTEEN</title>
+   
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		
+		<style>
+			
+			body{
+				background-image:url(https://static.vecteezy.com/system/resources/previews/000/167/400/original/free-canteen-vector.jpg);
+				background-repeat:no-repeat;
+			background-size:cover;
+			}
+			.form-style-5{
+	max-width: 500px;
+	padding: 10px 20px;
+	background: #f4f7f8;
+	margin: 10px auto;
+	padding: 20px;
+	background: #f4f7f8;
+	border-radius: 8px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+.form-style-5 fieldset{
+	border: none;
+}
+.form-style-5 legend {
+	font-size: 1.4em;
+	margin-bottom: 10px;
+}
+.form-style-5 label {
+	display: block;
+	margin-bottom: 8px;
+}
+				
+.form-style-5 input[type="text"],
+.form-style-5 input[type="date"],
+.form-style-5 input[type="datetime"],
+.form-style-5 input[type="email"],
+.form-style-5 input[type="number"],
+.form-style-5 input[type="search"],
+.form-style-5 input[type="time"],
+.form-style-5 input[type="url"],
+.form-style-5 textarea,
+.form-style-5 select {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	background: rgba(255,255,255,.1);
+	border: none;
+	border-radius: 4px;
+	font-size: 15px;
+	margin: 0;
+	outline: 0;
+	padding: 10px;
+	width: 100%;
+	box-sizing: border-box; 
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box; 
+	background-color: #e8eeef;
+	color:#8a97a0;
+	-webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+	box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+	margin-bottom: 30px;
+}
+.form-style-5 input[type="text"]:focus,
+.form-style-5 input[type="date"]:focus,
+.form-style-5 input[type="datetime"]:focus,
+.form-style-5 input[type="email"]:focus,
+.form-style-5 input[type="number"]:focus,
+.form-style-5 input[type="search"]:focus,
+.form-style-5 input[type="time"]:focus,
+.form-style-5 input[type="url"]:focus,
+.form-style-5 textarea:focus,
+.form-style-5 select:focus{
+	background: #d2d9dd;
+}
+.form-style-5 select{
+	-webkit-appearance: menulist-button;
+	height:35px;
+}
+			td{
+				color:red;
+				font-weight:bold;
+			}
+.form-style-5 .number {
+	background: #1abc9c;
+	color: #fff;
+	height: 30px;
+	width: 30px;
+	display: inline-block;
+	font-size: 0.8em;
+	margin-right: 4px;
+	line-height: 30px;
+	text-align: center;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+	border-radius: 15px 15px 15px 0px;
+}
+		
+.form-style-5 input[type="submit"],
+.form-style-5 input[type="button"]
+{
+	position: relative;
+	display: block;
+	padding: 19px 39px 18px 39px;
+	color: #FFF;
+	margin: 0 auto;
+	background: #1abc9c;
+	font-size: 18px;
+	text-align: center;
+	font-style: normal;
+	width: 100%;
+	border: 1px solid #16a085;
+	border-width: 1px 1px 3px;
+	margin-bottom: 10px;
+}
+.form-style-5 input[type="submit"]:hover,
+.form-style-5 input[type="button"]:hover
+{
+	background: #109177;
+}
+			footer {
+  text-align: center;
+  padding: 3px;
+  background-color: black;
+  color: white;
+margin-top:100px;
+				
+}
+		</style>
+	</head>
+	<body>
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/">NADEEM TARIN HALL CANTEEN</a>			
+		</div>
+		<div class="collapse navbar-collapse">
+			 <ul class="nav navbar-nav navbar-right">
+		<% if(!currentUser){ %>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Sign Up</a></li>
+		<%}	else  {%>
+			<li><a href="#"> Currently Signed as <%= currentUser.username %></a></li>	 
+            <li><a href="/logout">SignOut</a></li>
+		<%	}	%> 
+        </ul>
+		</div>
+  </div>
+		</nav>
+		<div class="container">
+		<%  if(error && error.length >0){ %>
+			<div  class="alert alert-danger" role="alert">
+			<%= error %>
+		    </div>
+		<% } %>	
+			<%  if(success && success.length >0){ %>
+			<div  class="alert alert-success" role="alert">
+			<%= success %>
+		    </div>
+			<% } %>
+		</div>
+<div>
+	
+		</div>
+		
+		
+         <div class="row">
+			<div class="col-md-6">
+		<form name="calculator" style="margin-left:30px" >	 
+			   
+  <table class="table table-hover" >
+    <thead>
+      <tr>
+        <th>Food Name</th>
+        <th>Price</th>
+        <th>Add to Cart</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Aloo Parantha</td>
+		 <td>Rs 10.00</td> 
+        <td><input type="button" class="btn btn-success" value="Add to cart" onClick="document.calculator.ans.value+='+10'"></td>
+       
+      </tr>
+      <tr>
+        <td>Bread Omellete</td>
+		 <td>Rs 20.00</td> 
+        <td><input type="button" value="Add to cart"class="btn btn-success" onClick="document.calculator.ans.value+='+20'"></td>
+       
+      </tr>
+      <tr>
+        <td>Kebeb Parantha</td>
+		 <td>Rs 20.00</td> 
+        <td><input type="button" value="Add to cart" class="btn btn-success"onClick="document.calculator.ans.value+='+20'"></td>
+      </tr>
+		 <tr>
+        <td>French Toast</td>
+		 <td>Rs 20.00</td> 
+        <td><input type="button" value="Add to cart"class="btn btn-success" onClick="document.calculator.ans.value+='+20'"></td>
+      </tr>
+		 <tr>
+        <td>Milk Tea</td>
+		 <td>Rs 6.00</td> 
+			 <td><input type="button" value="Add to cart" class="btn btn-success"onClick="document.calculator.ans.value+='+6'"></td>
+      </tr>
+		<tr>
+        <td>Omellete Slice</td>
+		 <td>Rs 15.00</td> 
+        <td><input type="button" value="Add to cart" class="btn btn-success"onClick="document.calculator.ans.value+='+15'"></td>
+       
+      </tr>
+      <tr>
+        <td>Veg Roll</td>
+		 <td>Rs 20.00</td> 
+        <td><input type="button" value="Add to cart" class="btn btn-success"onClick="document.calculator.ans.value+='+20'"></td>
+       
+      </tr>
+      <tr>
+        <td>Veg Sandwich</td>
+		 <td>Rs 20.00</td> 
+        <td><input type="button" value="Add to cart" class="btn btn-success"onClick="document.calculator.ans.value+='+20'"></td>
+      </tr>
+		 <tr>
+        <td>Boiled Egg</td>
+		 <td>Rs 6.00</td> 
+        <td><input type="button" value="Add to cart" class="btn btn-success" onClick="document.calculator.ans.value+='+6'"></td>
+      </tr>
+		 <tr>
+        <td>Plain Parantha</td>
+		 <td>Rs 7.00</td> 
+			 <td><input type="button" value="Add to cart" class="btn btn-success"onClick="document.calculator.ans.value+='+7'"></td>
+      </tr>
+		<tr>
+        <td>Half fry</td>
+		 <td>Rs 15.00</td> 
+        <td><input type="button" value="Add to cart" class="btn btn-success" onClick="document.calculator.ans.value+='+15'"></td>
+       
+      </tr>
+      <tr>
+        <td>Aloo Samosa</td>
+		 <td>Rs 6.00</td> 
+        <td><input type="button" value="Add to cart" class="btn btn-success" onClick="document.calculator.ans.value+='+6'"></td>
+       
+      </tr>
+      <tr>
+        <td>Maggi Noodles</td>
+		 <td>Rs 15.00</td> 
+        <td><input type="button" value="Add to cart" class="btn btn-success" onClick="document.calculator.ans.value+='+15'"></td>
+      </tr>
+		 <tr>
+        <td>Veg Pakora</td>
+		 <td>Rs 20.00</td> 
+        <td><input type="button" value="Add to cart" class="btn btn-success" onClick="document.calculator.ans.value+='+20'"></td>
+      </tr>
+		
+    </tbody>
+  </table>
+<input type="reset" class="btn btn-danger" value="Reset">
+<input type="button" value="Total Bill" class="btn btn-success" onClick="document.calculator.ans.value= eval(document.calculator.ans.value)" >
+			<span style="margin-left:30px"><b>Your total bill is</b><input type="textfield" name="ans" value=""></span>
+				console.log(value)
+				
+				</form>
+			 </div>
+			 <div class="col-md-6">
+				 <div class="form-style-5">
+<form action="/food/billing" method="POST">
+<fieldset>
+<legend><span class="number">1</span>Place Order</legend>
+<input type="text"  value="name" name="name" placeholder="Your Name *" required>
+<input type="number" value="roomno" name="roomno" placeholder="Your roomno *" required>
+<input type="number" value="Amount" name="Amount" placeholder="Your total Amount *" required>
+<input type="number" value="phone" name="phone" placeholder="Your Phone no *" required>
+	<p>
+		Enter 1 For payment through cash on delivery
+	</p>
+<input type="number" value="COD" name="COD" placeholder="ENTER 1 for COD">
+	<p>
+		Enter 2 For payment through Internet banking
+	</p>
+<input type="number" value="IT" name="IT" placeholder="Enter 2 for internet transaction">
+</fieldset>
+<fieldset>
+<legend><span class="number">2</span> Additional Info</legend>
+<textarea name="field3" placeholder="Text here if you want urgent order"></textarea>
+</fieldset>
+<input type="submit" value="Place order through COD" />
+</form>
+					 <a class="btn btn-primary"  style="margin-left:100px"href="https://www.onlinesbi.com/">Place order through Net payment</a>
+</div>
+				 
+				 
+			 </div>
+		</div>
+	<footer>
+  <p>Author: Faiz Alam<br>
+  <a href="faizamu19@gmail.com">faizamu19@gmail.com</a></p>
+</footer>
+	
+
+	</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+	<title>NADEEM TARIN HALL CANTEEN</title>
+   
+		<link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="https://js.stripe.com/v3/"></script>
+		<style>
+			
+			body{
+				background-color:yellow;
+			}
+			img{
+				margin-left:300px;
+			}
+		
+		</style>
+	</head>
+	<body>
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/">NADEEM TARIN HALL CANTEEN</a>			
+		</div>
+		<div class="collapse navbar-collapse">
+			 <ul class="nav navbar-nav navbar-right">
+		<% if(!currentUser){ %>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Sign Up</a></li>
+		<%}	else  {%>
+			<li><a href="#"> Currently Signed as <%= currentUser.username %></a></li>	 
+            <li><a href="/logout">SignOut</a></li>
+		<%	}	%> 
+        </ul>
+		</div>
+  </div>
+		</nav>
+		<div class="container">
+		<%  if(error && error.length >0){ %>
+			<div  class="alert alert-danger" role="alert">
+			<%= error %>
+		    </div>
+		<% } %>	
+			<%  if(success && success.length >0){ %>
+			<div  class="alert alert-success" role="alert">
+			<%= success %>
+		    </div>
+			<% } %>
+		</div>
+		
+<div class="container">
+	<div class="row">
+		
+<img src="https://th.bing.com/th/id/OIP.79hwVb08Xg2oD4QoJcJZtwHaC4?pid=Api&rs=1" >
+		
+<h1  style="text-align:center">
+	 Register on Nadeem Tarin HALL Canteen
+</h1>
+<form  action="/register" method="POST">
+	<div style="width:30%; margin:25px  auto ;">
+	<div class="form-group">
+	<input  class="form-control"type="text" name="username" placeholder="username">
+	</div>
+	<div class="form-group">
+	<input class="form-control" type="password" name="password" placeholder="password">
+	</div>	
+   <div class="form-group">
+	<button class="btn-lg btn-primary btn-block">
+		submit
+	</button>
+		</div>
+	</div>
+		</form>
+	</div>
+	</div>
+	</body>
+</html>
+		

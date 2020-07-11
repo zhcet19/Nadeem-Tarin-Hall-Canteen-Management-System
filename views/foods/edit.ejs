@@ -1,0 +1,32 @@
+<%- include ('../partials/header') %>
+<div class="container">
+	<div class="row">
+<h1 style="text-align:center">
+	 Edit <%= food.name %>
+</h1>
+<a href=""></a>
+<form action="/food/<%= food._id %>?_method=PUT" method="POST">
+	<div style="width:30%; margin:25px  auto ;">
+	<div class="form-group">
+	<input  class="form-control"type="text" placeholder="name" name="food[name]" value="<%= food.name%>">
+	</div>
+	<div class="form-group">
+	<input  class="form-control"type="number" placeholder="price" name="food[price]"  value="<%= food.price%>" min="5.00" step="1.00">
+	</div>
+	<div class="form-group">
+		<input  class="form-control"type="text" placeholder="image url" name="food[image]" value="<%= food.image %>">
+		</div>
+		<div class="form-group">
+		<input  class="form-control"type="text" placeholder="description" name="food[description]" value=" <%= food.description %>">
+		</div>
+	<div class="form-group">
+		<button class="btn-lg btn-primary btn-block" >
+		Submit
+	</button>
+		</div>
+		<a href="/food">Go back</a>
+	</div>
+</form>
+</div>
+</div>
+<%- include ('../partials/footer') %>		
