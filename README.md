@@ -23,3 +23,6 @@ Nadeem Tarin Hall is a resident-hall basically for engineering students of Zakir
 4)Used Stripe Api for payment system
 
 
+# some of its clip are as follows
+
+![alt tag](https://github.com/zhcet19/Nadeem-Tarin-Hall-Canteen-Management-System/blob/master/project1.png)
